@@ -1,0 +1,20 @@
+{
+  "name": "kafka-loadtest-example",
+  "version": "1.0.0",
+  "description": "Example Node.js based Kafka load test for Testable",
+  "main": "test.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testable/kafka-loadtest-example.git"
+  },
+  "author": "Avi Stramer",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/testable/kafka-loadtest-example#readme",
+  "dependencies": {
+    "collections": "^5.1.5",
+    "kafka-node": "^3.0.1",
+    "moment": "^2.22.2",
+    "randomstring": "^1.1.5",
+    "testable-utils": "^0.2.9"
+  }
+}

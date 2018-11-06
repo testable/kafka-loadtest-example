@@ -1,0 +1,295 @@
+{
+    "name":"Kafka",
+    "description":"View focused on Kafka metrics",
+    "config":{
+        "settings":{
+            "utilizationWarningThreshold":90
+        },
+        "charts":[
+            {
+                "id":"overview",
+                "name":"Overview",
+                "chartType":"Line",
+                "showMetricValues":true,
+                "metrics":[
+                    {
+                        "title":"Concurrents",
+                        "namespace":"Testable",
+                        "name":"maxConcurrentClients",
+                        "units":"users",
+                        "selected":true,
+                        "graphType":"column",
+                        "color":"#CCFFFF"
+                    },
+                    {
+                        "title":"E2E Median Response",
+                        "namespace":"User",
+                        "name":"E2E Latency-p50",
+                        "units":"ms",
+                        "selected":true,
+                        "graphType":"line",
+                        "color":"#1702FC"
+                    },
+                    {
+                        "title":"E2E 99th %ile Response",
+                        "namespace":"User",
+                        "name":"E2E Latency-p99",
+                        "units":"ms",
+                        "selected":false,
+                        "graphType":"line",
+                        "color":"#3880BA"
+                    },
+                    {
+                        "title":"Throughput",
+                        "namespace":"Testable",
+                        "name":"throughput",
+                        "units":"bytes/sec",
+                        "selected":false,
+                        "graphType":"line",
+                        "color":"#3880ba"
+                    },
+                    {
+                        "title":"Successful  <div class=\"ember-view inline-info-icon fa fa-info-circle\" data-toggle=\"popover\" data-trigger=\"hover focus\"       data-html=\"true\" data-content=\"A request is considered successful if a connection to the target is opened without error.  For <strong>HTTP</strong> requests, the response must also have a status code <strong>&amp;lt; 400</strong> to be considered successful.\"       data-placement=\"auto\"></div>",
+                        "namespace":"Testable",
+                        "name":"outcome-success-percent",
+                        "units":"%",
+                        "selected":false,
+                        "graphType":"line",
+                        "color":"#FF6600"
+                    },
+                    {
+                        "title":"Peak Requests/Sec",
+                        "namespace":"Testable",
+                        "name":"peakRequestsPerSec",
+                        "units":"req/sec",
+                        "selected":false,
+                        "graphType":"column",
+                        "color":"#E3FFCC"
+                    }
+                ]
+            },
+            {
+                "id":"responseInfoChart",
+                "name":"Response Breakdown",
+                "chartType":"Histogram",
+                "metrics":[
+                    {
+                        "title":"Response Codes",
+                        "namespace":"Testable",
+                        "name":"responseCode"
+                    },
+                    {
+                        "title":"HTTP Methods",
+                        "namespace":"Testable",
+                        "name":"httpMethod"
+                    }
+                ]
+            },
+            {
+                "id":"usageChart",
+                "name":"Test Runner Usage",
+                "chartType":"Metered",
+                "showMetricValues":true,
+                "metrics":[
+                    {
+                        "title":"Memory %",
+                        "namespace":"Testable",
+                        "name":"memoryUtilization",
+                        "units":"%",
+                        "selected":true
+                    },
+                    {
+                        "title":"CPU %",
+                        "namespace":"Testable",
+                        "name":"cpuUtilization",
+                        "units":"%",
+                        "selected":true
+                    },
+                    {
+                        "title":"Bandwidth",
+                        "namespace":"Testable",
+                        "name":"testRunnerBandwidth",
+                        "units":"bytes/sec",
+                        "selected":false
+                    },
+                    {
+                        "title":"Connections",
+                        "namespace":"Testable",
+                        "name":"testRunnerConnections",
+                        "units":"connections",
+                        "selected":false
+                    }
+                ]
+            },
+            {
+                "id":"msgsProducedConsumed",
+                "name":"Msgs Produced/Consumed",
+                "chartType":"Line",
+                "showMetricValues":true,
+                "metrics":[
+                    {
+                        "title":"Produced",
+                        "name":"Msgs Produced",
+                        "units":"msgs",
+                        "selected":true,
+                        "namespace":"User",
+                        "graphType":"column",
+                        "color":"#1702fc"
+                    },
+                    {
+                        "title":"Consumed",
+                        "name":"Msgs Consumed",
+                        "units":"msgs",
+                        "selected":true,
+                        "namespace":"User",
+                        "graphType":"column",
+                        "color":"#3880ba"
+                    }
+                ]
+            }
+        ],
+        "console":{
+            "level":"Info",
+            "wrap":true,
+            "systemOnly":false,
+            "hideOnComplete":false
+        },
+        "grid":{
+            "orderBy":"resource",
+            "showComparisons":true,
+            "metrics":[
+                {
+                    "title":"Msgs Produced",
+                    "namespace":"User",
+                    "metric":"Msgs Produced",
+                    "units":"msgs",
+                    "isDefault":true,
+                    "selected":false
+                },
+                {
+                    "title":"Msgs Consumed",
+                    "namespace":"User",
+                    "metric":"Msgs Consumed",
+                    "units":"msgs",
+                    "isDefault":true,
+                    "selected":false
+                },
+                {
+                    "title":"E2E Count",
+                    "namespace":"User",
+                    "metric":"E2E Latency-count",
+                    "units":"",
+                    "isDefault":true,
+                    "selected":false
+                },
+                {
+                    "title":"E2E Median",
+                    "namespace":"User",
+                    "metric":"E2E Latency-p50",
+                    "units":"ms",
+                    "isDefault":true,
+                    "selected":false
+                },
+                {
+                    "title":"E2E 99th %ile",
+                    "namespace":"User",
+                    "metric":"E2E Latency-p99",
+                    "units":"ms",
+                    "isDefault":true,
+                    "selected":false
+                },
+                {
+                    "title":"Successful",
+                    "namespace":"Testable",
+                    "metric":"outcome-success-percent",
+                    "units":"%"
+                }
+            ]
+        },
+        "glance":{
+            "showUserMetrics":false,
+            "metrics":[
+                {
+                    "title":"Median E2E Latency",
+                    "namespace":"User",
+                    "metric":"E2E Latency-p50",
+                    "higherIsBetter":false,
+                    "isDefault":true,
+                    "amber":10,
+                    "red":25,
+                    "improved":10,
+                    "units":"ms"
+                },
+                {
+                    "title":"Msgs Produced",
+                    "namespace":"User",
+                    "metric":"Msgs Produced",
+                    "higherIsBetter":true,
+                    "isDefault":true,
+                    "amber":10,
+                    "red":25,
+                    "improved":10,
+                    "units":"msgs"
+                },
+                {
+                    "title":"Msgs Consumed",
+                    "namespace":"User",
+                    "metric":"Msgs Consumed",
+                    "higherIsBetter":true,
+                    "isDefault":true,
+                    "amber":10,
+                    "red":25,
+                    "improved":10,
+                    "units":"msgs"
+                },
+                {
+                    "title":"Max Concurrent Users",
+                    "namespace":"Testable",
+                    "metric":"maxConcurrentClients",
+                    "units":"users",
+                    "isDefault":true,
+                    "higherIsBetter":true,
+                    "amber":10,
+                    "red":25,
+                    "improved":10
+                }
+            ]
+        },
+        "order":[
+            {
+                "id":"glance",
+                "type":"Glance"
+            },
+            {
+                "id":"console",
+                "type":"Console"
+            },
+            {
+                "id":"regionalResults",
+                "type":"Regional Results",
+                "order":[
+                    {
+                        "type":"Chart",
+                        "id":"overview"
+                    },
+                    {
+                        "type":"Chart",
+                        "id":"msgsProducedConsumed"
+                    },
+                    {
+                        "id":"grid",
+                        "type":"Grid"
+                    },
+                    {
+                        "id":"usageChart",
+                        "type":"Chart"
+                    }
+                ]
+            },
+            {
+                "id":"agents",
+                "type":"Agents"
+            }
+        ]
+    }
+}
