@@ -20,13 +20,13 @@ Any metrics captured will be output to the console as JSON.
 
 ## Running on Testable
 
-To run on Testable you must have `curl` installed and have <a target="_blank" href="https://a.testable.io/register">created a Testable account.</a>
+To run on Testable you must have `curl` installed and have <a target="_blank" href="https://a.testable.io/register">created a Testable account.</a> The number of concurrent users in our example is setup to fit within the limits of the free account.
 
-**Step 1:** Get a Testable API Key. 
+**Step 1: Get a Testable API Key**
 
 <a target="_blank" href="https://a.testable.io/login">Login to Testable</a> and go to Organization => API Keys. Copy an API key an set it locally as the `TESTABLE_KEY` environment variable (`export TESTABLE_KEY=xxxx`).
 
-**Step 2:** Run the load test
+**Step 2: Start the load test**
 
 Check and update the parameters set in `run-testable.sh` before starting the test. This includes number of concurrent users, topics, producers, consumers, message frequency, message size, regions to generate load, instance type, etc.
 
