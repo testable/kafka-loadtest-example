@@ -27,6 +27,7 @@ execution_id=$(curl -s -F "code=@test.js" \
   -F "params[maxMsgSize]=500" \
   -F "conf_testrunners[0].regions[0].name=us-east-1" \
   -F "conf_testrunners[0].regions[0].instance_type=t2.large" \
+  -F "conf_testrunners[0].regions[0].instances=1" \
   -F "testcase_name=Kafka Load Test" \
   -F "conf_name=5-50 Concurrents 1 Instance" \
   -F "scenario_name=Node.js Script" \
