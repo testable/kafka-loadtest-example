@@ -1,0 +1,270 @@
+{
+    "name":"Kafka - Publish and Wait",
+    "description":"View focused on Kafka metrics",
+    "config":{
+       "charts":[
+          {
+             "name":"Overview",
+             "displayType":"Pie",
+             "resourceTypeVisibility":"always",
+             "id":"fce2d755-bbc0-426b-9121-e47889dc3128",
+             "metrics":[
+                {
+                   "name":"maxConcurrentClients",
+                   "selected":true,
+                   "color":"#CCFFFF",
+                   "units":"users",
+                   "title":"Concurrents",
+                   "graphType":"column",
+                   "namespace":"Testable"
+                },
+                {
+                   "name":"Consumer Lag-largest",
+                   "selected":true,
+                   "metricDefId":1856724,
+                   "color":"#1702FC",
+                   "units":"msgs",
+                   "title":"Peak Lag",
+                   "graphType":"line",
+                   "namespace":"User"
+                },
+                {
+                   "name":"throughput",
+                   "selected":false,
+                   "color":"#3880ba",
+                   "units":"bytes/sec",
+                   "title":"Throughput",
+                   "graphType":"line",
+                   "namespace":"Testable"
+                },
+                {
+                   "name":"outcome-success-percent",
+                   "selected":false,
+                   "metricDefId":1856734,
+                   "color":"#FF6600",
+                   "units":"%",
+                   "title":"Successful  <div class=\"ember-view inline-info-icon fa fa-info-circle\" data-toggle=\"popover\" data-trigger=\"hover focus\"       data-html=\"true\" data-content=\"A request is considered successful if a connection to the target is opened without error.  For <strong>HTTP</strong> requests, the response must also have a status code <strong>&amp;lt; 400</strong> to be considered successful.\"       data-placement=\"auto\"></div>",
+                   "graphType":"line",
+                   "namespace":"Testable"
+                },
+                {
+                   "name":"peakRequestsPerSec",
+                   "selected":false,
+                   "color":"#E3FFCC",
+                   "units":"req/sec",
+                   "title":"Peak Requests/Sec",
+                   "graphType":"column",
+                   "namespace":"Testable"
+                }
+             ],
+             "hideMetricValuesInHistoryReport":true,
+             "chartType":"Line",
+             "visibility":"always",
+             "showMetricValues":true
+          },
+          {
+             "id":"responseInfoChart",
+             "name":"Response Breakdown",
+             "chartType":"Histogram",
+             "metrics":[
+                {
+                   "title":"Response Codes",
+                   "namespace":"Testable",
+                   "name":"responseCode"
+                },
+                {
+                   "title":"Quotes By Exchange",
+                   "namespace":"User",
+                   "name":"Quotes By Exchange"
+                }
+             ]
+          },
+          {
+             "name":"Test Runner Usage",
+             "id":"usageChart",
+             "metrics":[
+                {
+                   "name":"memoryUtilization",
+                   "selected":true,
+                   "units":"%",
+                   "title":"Memory %",
+                   "namespace":"Testable"
+                },
+                {
+                   "name":"cpuUtilization",
+                   "selected":true,
+                   "units":"%",
+                   "title":"CPU %",
+                   "namespace":"Testable"
+                },
+                {
+                   "name":"testRunnerBandwidth",
+                   "selected":false,
+                   "units":"bytes/sec",
+                   "title":"Bandwidth",
+                   "namespace":"Testable"
+                },
+                {
+                   "name":"testRunnerConnections",
+                   "selected":false,
+                   "units":"connections",
+                   "title":"Connections",
+                   "namespace":"Testable"
+                }
+             ],
+             "chartType":"Metered",
+             "showMetricValues":true
+          },
+          {
+             "name":"Msgs Produced/Consumed",
+             "displayType":"Pie",
+             "resourceTypeVisibility":"always",
+             "id":"2fd09330-dd5c-4688-a025-9d2556cbbf8d",
+             "metrics":[
+                {
+                   "name":"Msgs Produced",
+                   "selected":true,
+                   "metricDefId":1856728,
+                   "color":"#1702fc",
+                   "units":"msgs",
+                   "title":"Produced",
+                   "graphType":"column",
+                   "namespace":"User"
+                }
+             ],
+             "hideMetricValuesInHistoryReport":true,
+             "chartType":"Line",
+             "visibility":"always",
+             "showMetricValues":true
+          }
+       ],
+       "glance":{
+          "visibility":"thisRun",
+          "showUserMetrics":false,
+          "metrics":[
+             {
+                "amber":10,
+                "metric":"Consumer Lag-peak",
+                "higherIsBetter":false,
+                "units":"msgs",
+                "improved":10,
+                "title":"Peak Lag",
+                "isDefault":true,
+                "red":25,
+                "namespace":"User"
+             },
+             {
+                "amber":10,
+                "metric":"Msgs Produced",
+                "higherIsBetter":true,
+                "units":"msgs",
+                "improved":10,
+                "title":"Msgs Produced",
+                "isDefault":true,
+                "red":25,
+                "namespace":"User"
+             },
+             {
+                "amber":10,
+                "metric":"maxConcurrentClients",
+                "higherIsBetter":true,
+                "units":"users",
+                "improved":10,
+                "title":"Max Concurrent Users",
+                "isDefault":true,
+                "red":25,
+                "namespace":"Testable"
+             }
+          ]
+       },
+       "grid":{
+          "orderBy":"resource",
+          "showComparisons":true,
+          "metrics":[
+             {
+                "selected":false,
+                "metric":"Msgs Produced",
+                "units":"msgs",
+                "title":"Msgs Produced",
+                "isDefault":true,
+                "namespace":"User"
+             },
+             {
+                "selected":false,
+                "metric":"Msgs Consumed",
+                "units":"msgs",
+                "title":"Msgs Consumed",
+                "isDefault":true,
+                "namespace":"User"
+             },
+             {
+                "selected":false,
+                "metric":"E2E Latency-count",
+                "units":"",
+                "title":"E2E Count",
+                "isDefault":true,
+                "namespace":"User"
+             },
+             {
+                "selected":false,
+                "metric":"E2E Latency-p50",
+                "units":"ms",
+                "title":"E2E Median",
+                "isDefault":true,
+                "namespace":"User"
+             },
+             {
+                "selected":false,
+                "metric":"E2E Latency-p99",
+                "units":"ms",
+                "title":"E2E 99th %ile",
+                "isDefault":true,
+                "namespace":"User"
+             },
+             {
+                "title":"Successful",
+                "namespace":"Testable",
+                "metric":"outcome-success-percent",
+                "units":"%"
+             }
+          ]
+       },
+       "order":[
+          {
+             "id":"glance",
+             "type":"Glance"
+          },
+          {
+             "type":"Chart",
+             "id":"fce2d755-bbc0-426b-9121-e47889dc3128"
+          },
+          {
+             "type":"Chart",
+             "id":"2fd09330-dd5c-4688-a025-9d2556cbbf8d"
+          },
+          {
+             "id":"grid",
+             "type":"Grid"
+          },
+          {
+             "type":"Chart",
+             "id":"responseInfoChart"
+          },
+          {
+             "id":"usageChart",
+             "type":"Chart"
+          }
+       ],
+       "console":{
+          "level":"Info",
+          "wrap":true,
+          "systemOnly":false,
+          "hideOnComplete":false
+       },
+       "settings":{
+          "utilizationWarningThreshold":90
+       }
+    },
+    "isLoad":false,
+    "version":2
+ }

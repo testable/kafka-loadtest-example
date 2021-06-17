@@ -1,5 +1,5 @@
 {
-    "name":"Kafka",
+    "name":"Kafka - E2E",
     "description":"View focused on Kafka metrics",
     "config":{
         "settings":{
@@ -79,9 +79,9 @@
                         "name":"responseCode"
                     },
                     {
-                        "title":"HTTP Methods",
-                        "namespace":"Testable",
-                        "name":"httpMethod"
+                        "title":"Quotes By Exchange",
+                        "namespace":"User",
+                        "name":"Quotes By Exchange"
                     }
                 ]
             },
@@ -279,6 +279,10 @@
                     {
                         "id":"grid",
                         "type":"Grid"
+                    },
+                    {
+                        "type":"Chart",
+                        "id":"responseInfoChart"
                     },
                     {
                         "id":"usageChart",

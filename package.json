@@ -1,6 +1,6 @@
 {
   "name": "kafka-loadtest-example",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Example Node.js based Kafka load test for Testable",
   "main": "test.js",
   "repository": {
@@ -11,10 +11,10 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/testable/kafka-loadtest-example#readme",
   "dependencies": {
-    "collections": "^5.1.5",
-    "kafka-node": "^5.0.0",
-    "moment": "^2.27.0",
-    "randomstring": "^1.1.5",
-    "testable-utils": "^0.4.2"
+    "axios": "^0.21.1",
+    "kafkajs": "^1.15.0",
+    "randomstring": "^1.2.1",
+    "testable-utils": "^0.5.8",
+    "uuid": "^8.3.2"
   }
 }

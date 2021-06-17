@@ -1,19 +1,17 @@
-## Kafka Load Test Example
+## Kafka Load Test Examples
 
-This project contains an example load test for a Kafka cluster that can be run on the Testable platform with a configurable number of topics, concurrent users, producers, consumers, message frequency, message size, etc.
+This project contains example tests for a Kafka cluster that can be run on the Testable platform. There are two basic tests:
 
-In addition to standard metrics on each TCP connection to the Kafka brokers we will also capture several custom metrics to help us determine the health of our Kafka system during the test:
-
-1. E2E Latency: Time it takes from the producer sending the message until the consumer receives the message.
-2. Msgs Produced: Number of message produced both overall and grouped by topic.
-3. Msgs Consumed: Number of messages consumed both overall and grouped by topic. Since there can be multiple consumers for each topic this number will be higher than the number of messages produced in most cases.
+1. `e2e-test.js`: Publish messages on a topic and then consume them in a new consumer group while capturing custom metrics for the number of messages published, consumed, and the E2E latency.
+2. `publish-and-wait-test.js`: Publish messages on a topic, wait for the lag for the specified consumer group id to go to zero, and then perform a follow up step. In this case we capture number of messages published and lag as custom metrics.
 
 ## Running Locally
 
-To run locally you must have <a target="blank" href="https://nodejs.org/en/download/">Node.js 8.x or later.</a> Locally only 1 concurrent user will be executed.
+To run locally you must have <a target="blank" href="https://nodejs.org/en/download/">Node.js 12.x or later.</a> Locally only 1 concurrent user will be executed.
 
 ```
-./run-local.sh [kafka-bootstrap-url]
+./run-e2e-local.sh [kafka-bootstrap-url]
+./run-publish-and-wait-local.sh [kafka-bootstrap-url] [consumer-group-id]
 ```
 
 Any metrics captured will be output to the console as JSON.
@@ -28,12 +26,13 @@ To run on Testable you must have `curl` installed and have <a target="_blank" hr
 
 **Step 2: Start the load test**
 
-Check and update the parameters set in `run-testable.sh` before starting the test. This includes number of concurrent users, topics, producers, consumers, message frequency, message size, regions to generate load, instance type, etc.
+Check and update the parameters set in `run-[...]-testable.sh` before starting the test. This includes number of concurrent users, topic, message frequency, regions to generate load, instance type, etc.
 
 ```
-./run-testable.sh [kafka-bootstrap-url]
+./run-e2e-testable.sh [kafka-bootstrap-url]
+./run-publish-and-wait-testable.sh [kafka-bootstrap-url] [consumer-group-id]
 ```
 
-Use the test run URL to follow progress in real-time. This example project includes a custom view (`kafka-view.json`) that will also get uploaded to Testable and set as the default for this test case. The custom view features the key metrics this test captures.
+Use the test run URL to follow progress in real-time. This example project includes custom views (`kafka-e2e-view.json` and `kafka-publish-and-wait-view.json`) that will also get uploaded to Testable and set as the default for this test case. The custom view features the key metrics this test captures.
 
 ![Results](results.png)
