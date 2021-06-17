@@ -191,35 +191,19 @@
              },
              {
                 "selected":false,
-                "metric":"Msgs Consumed",
+                "metric":"Consumer Lag-peak",
                 "units":"msgs",
-                "title":"Msgs Consumed",
+                "title":"Peak Lag",
                 "isDefault":true,
                 "namespace":"User"
              },
              {
                 "selected":false,
-                "metric":"E2E Latency-count",
-                "units":"",
-                "title":"E2E Count",
-                "isDefault":true,
-                "namespace":"User"
-             },
-             {
-                "selected":false,
-                "metric":"E2E Latency-p50",
+                "metric":"firstReceivedMs-p50",
                 "units":"ms",
-                "title":"E2E Median",
+                "title":"Median Response Time",
                 "isDefault":true,
-                "namespace":"User"
-             },
-             {
-                "selected":false,
-                "metric":"E2E Latency-p99",
-                "units":"ms",
-                "title":"E2E 99th %ile",
-                "isDefault":true,
-                "namespace":"User"
+                "namespace":"Testable"
              },
              {
                 "title":"Successful",
