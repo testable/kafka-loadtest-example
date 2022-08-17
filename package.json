@@ -11,10 +11,10 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/testable/kafka-loadtest-example#readme",
   "dependencies": {
-    "axios": "^0.21.2",
-    "kafkajs": "^1.15.0",
-    "randomstring": "^1.2.1",
-    "testable-utils": "^0.5.8",
+    "axios": "^0.27.2",
+    "kafkajs": "^2.1.0",
+    "randomstring": "^1.2.2",
+    "testable-utils": "^0.5.12",
     "uuid": "^8.3.2"
   }
 }
