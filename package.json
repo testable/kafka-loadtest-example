@@ -14,7 +14,7 @@
     "axios": "^0.27.2",
     "kafkajs": "^2.1.0",
     "randomstring": "^1.2.2",
-    "testable-utils": "^0.5.12",
+    "testable-utils": "^0.6.2",
     "uuid": "^8.3.2"
   }
 }
